@@ -58,4 +58,10 @@ public class KartSelector : MonoBehaviour
         currentCar = carList[selectedCar];
         SceneManager.LoadSceneAsync(sceneName);
     }
+
+    public void SelectCar2()
+    {
+        currentCar = carList[selectedCar];
+        SceneManager.LoadSceneAsync(sceneName);
+    }
 }

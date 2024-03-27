@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4400185, g: 0.30415043, b: 0.25649568, a: 1}
+  m_IndirectSpecularColor: {r: 0.21215841, g: 0.21215841, b: 0.21215841, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,7 +447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 40.003204, y: 129.66934}
+  m_AnchoredPosition: {x: 40.003174, y: 129.66934}
   m_SizeDelta: {x: 46.8064, y: 95.7387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715871311
@@ -580,7 +580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -45.5, y: 129.6693}
+  m_AnchoredPosition: {x: -45.5, y: 129.66931}
   m_SizeDelta: {x: 46.8064, y: 95.7387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &759356475
@@ -1634,7 +1634,7 @@ MonoBehaviour:
   - {fileID: 4810912518991602691, guid: fa18ba8becc62984aaffffbfc9998300, type: 3}
   selectedCar: 0
   carousel: {fileID: 324963224}
-  sceneName: MainScene
+  sceneName: TestandoMultiplayer
 --- !u!4 &1660694770
 Transform:
   m_ObjectHideFlags: 0
