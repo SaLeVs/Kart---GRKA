@@ -8,7 +8,7 @@ public class PowerBox : MonoBehaviour
     public GameObject[] bulletPrefabs;
     public Transform[] bulletSpawns;
     public int currentBullet = 0;
-    public bool readyToFire = true;
+    public bool readyToFire = false;
 
     public string fireButtonName = "Fire1";
 
@@ -16,23 +16,15 @@ public class PowerBox : MonoBehaviour
     {
         KeyboardInput input = GetComponent<KeyboardInput>();
         fireButtonName = input.FireButtonName;
+        readyToFire = false;
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (readyToFire)
+        if (other.CompareTag("Item"))
         {
-            Fire(); 
-        }
-        
-    }
-
-    void Fire()
-    {
-        if (Input.GetButtonDown(fireButtonName))
-        {
-            GameObject bullet = Instantiate(bulletPrefabs[currentBullet],
-                bulletSpawns[0].position, bulletSpawns[0].rotation);
+            RandomizeBullet();
+            Destroy(other.gameObject);
         }
     }
 
@@ -42,12 +34,38 @@ public class PowerBox : MonoBehaviour
         readyToFire = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+
+
+    void Update()
     {
-        if (other.CompareTag("Item"))
+
+        if (readyToFire)
         {
-            RandomizeBullet();
-            // colocar o barulho de randomizar aqui
+            if (Input.GetButtonDown(fireButtonName))
+            {
+                GameObject bullet;
+
+                if (currentBullet == 0 && bulletPrefabs.Length > 0)
+                {
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                }
+                else if (currentBullet == 1 && bulletPrefabs.Length > 1)
+                {
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                }
+                else if (currentBullet == 2 && bulletPrefabs.Length > 2)
+                {
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                }
+                else if (currentBullet == 3 && bulletPrefabs.Length > 3)
+                {
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                }
+
+                readyToFire = false;
+            }
         }
+
     }
+
 }

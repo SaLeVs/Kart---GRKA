@@ -393,6 +393,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs:
   - {fileID: 6720342035688540001, guid: e36c4a4752d303a4c94f4d9b46461107, type: 3}
+  - {fileID: 5373065818698389240, guid: d6903286be5a16d43bc4b830731429ef, type: 3}
+  - {fileID: 6232376990701613555, guid: 2c5c8aa269527ba40865cb1ed95f08e1, type: 3}
+  - {fileID: 7074526082333022592, guid: 23efcf7a923b7eb428907031f1dca802, type: 3}
   bulletSpawns:
   - {fileID: 3828386867756964739}
   - {fileID: 6185277569081356451}
