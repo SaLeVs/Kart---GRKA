@@ -7,13 +7,28 @@ public class PowerBox : MonoBehaviour
 {
     public GameObject[] bulletPrefabs;
     public Transform[] bulletSpawns;
+    public Transform[] pecas;
+
     public int currentBullet = 0;
     public bool readyToFire = false;
-
     public string fireButtonName = "Fire1";
+    private float pwpLife = 4f;
+    public ArcadeKart scriptCarro;
+    public Feno fenoScript;
+
+    private bool isOleoActive = false;
+    private bool isDinamiteActive = false;
+    private bool isFenoActive = false;
+    private float rotationSpeed = 720f;
+    private bool isRotating = false;
+    public float launchVelocity = 10f;
+
+
 
     void Start()
     {
+        fenoScript = GetComponent<Feno>();
+        scriptCarro = GetComponent<ArcadeKart>();
         KeyboardInput input = GetComponent<KeyboardInput>();
         fireButtonName = input.FireButtonName;
         readyToFire = false;
@@ -26,6 +41,50 @@ public class PowerBox : MonoBehaviour
             RandomizeBullet();
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Óleo"))
+        {
+            if (!isOleoActive)
+            {
+                pwpOleo();
+                RodaCarro();
+                isOleoActive = true;
+                Invoke("ResetPwP", 6f);
+                Destroy(other.gameObject, pwpLife);
+            }
+        }
+
+        if (other.CompareTag("Dinamite"))
+        {
+            if (!isDinamiteActive)
+            {
+                pwpDinamite();
+                RodaCarro();
+                isDinamiteActive = true;
+                Invoke("ResetPwP", 4f);
+                Destroy(other.gameObject, pwpLife);
+            }
+        }
+
+        if (other.CompareTag("Feno"))
+        {
+            if (!isFenoActive)
+            {
+                Camera playerCamera = Camera.main;
+
+                if (playerCamera != null)
+                {
+                    fenoScript.ActivateFenoEffect(playerCamera.transform);
+                }
+                else
+                {
+                    Debug.LogError("Câmera não encontrada.");
+                }
+                isFenoActive = true; 
+                Destroy(other.gameObject, pwpLife);
+            }
+        }
+
     }
 
     public void RandomizeBullet()
@@ -35,6 +94,52 @@ public class PowerBox : MonoBehaviour
     }
 
 
+    public void pwpOleo()
+    {
+        scriptCarro.baseStats.TopSpeed = 7f;
+
+    }
+
+    public void pwpDinamite()
+    {
+        scriptCarro.baseStats.TopSpeed = 1f;
+
+    }
+
+
+    private void ResetPwP()
+    {
+        scriptCarro.baseStats.TopSpeed = 15f;
+        isOleoActive = false;
+    }
+
+    public void RodaCarro()
+    {
+        if (!isRotating)
+        {
+            StartCoroutine(RotateCarParts());
+        }
+    }
+
+    private IEnumerator RotateCarParts()
+    {
+        isRotating = true;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 7f)
+        {
+            foreach (Transform peca in pecas)
+            {
+                peca.Rotate(Vector3.down, rotationSpeed * Time.deltaTime); 
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isRotating = false;
+    }
 
     void Update()
     {
@@ -48,10 +153,12 @@ public class PowerBox : MonoBehaviour
                 if (currentBullet == 0 && bulletPrefabs.Length > 0)
                 {
                     bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                    
                 }
                 else if (currentBullet == 1 && bulletPrefabs.Length > 1)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[2].position, bulletSpawns[2].rotation);
+                    
                 }
                 else if (currentBullet == 2 && bulletPrefabs.Length > 2)
                 {

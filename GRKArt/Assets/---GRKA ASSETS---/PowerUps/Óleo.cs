@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Óleo : MonoBehaviour
 {
-    public ArcadeKart kartScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,9 +12,13 @@ public class Óleo : MonoBehaviour
         {
             
              ArcadeKart arcadeKart = other.GetComponent<ArcadeKart>();
-             arcadeKart.baseStats.TopSpeed = 3f;
-             Debug.Log("vai");
-             
+
+
+            if (arcadeKart != null)
+            {
+                arcadeKart.baseStats.TopSpeed = 3f;
+                Debug.Log("vai");
+            }
          }
             
         

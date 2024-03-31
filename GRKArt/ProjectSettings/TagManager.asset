@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - "\xD3leo"
+  - Dinamite
+  - Feno
   layers:
   - Default
   - TransparentFX
