@@ -25,11 +25,15 @@ public class Respawner : MonoBehaviour
         
         GameObject car = Instantiate(carSelected, spawnPoints[0].position, spawnPoints[0].rotation);
         GameObject car2 = Instantiate(carSelected, spawnPoints[1].position, spawnPoints[1].rotation);
+        car.tag = "Player";
+        car2.tag = "Player2";
         virtualCameras[0].Follow = car.transform;
         virtualCameras[0].LookAt = car.transform;
+        
 
         virtualCameras[1].Follow = car2.transform;
         virtualCameras[1].LookAt = car2.transform;
+        
 
         KeyboardInput input = car.GetComponent<KeyboardInput>();
         KeyboardInput input2 = car2.GetComponent<KeyboardInput>();

@@ -20,8 +20,21 @@ public class Óleo : MonoBehaviour
                 Debug.Log("vai");
             }
          }
-            
-        
+
+        if (other.CompareTag("Player2"))
+        {
+
+            ArcadeKart arcadeKart = other.GetComponent<ArcadeKart>();
+
+
+            if (arcadeKart != null)
+            {
+                arcadeKart.baseStats.TopSpeed = 3f;
+                Debug.Log("vai");
+            }
+        }
+
+
     }
     
         

@@ -59,7 +59,6 @@ public class PowerBox : MonoBehaviour
             if (!isDinamiteActive)
             {
                 pwpDinamite();
-                RodaCarro();
                 isDinamiteActive = true;
                 Invoke("ResetPwP", 4f);
                 Destroy(other.gameObject, pwpLife);
@@ -68,21 +67,7 @@ public class PowerBox : MonoBehaviour
 
         if (other.CompareTag("Feno"))
         {
-            if (!isFenoActive)
-            {
-                Camera playerCamera = Camera.main;
-
-                if (playerCamera != null)
-                {
-                    fenoScript.ActivateFenoEffect(playerCamera.transform);
-                }
-                else
-                {
-                    Debug.LogError("Câmera não encontrada.");
-                }
-                isFenoActive = true; 
-                Destroy(other.gameObject, pwpLife);
-            }
+            
         }
 
     }
@@ -111,6 +96,7 @@ public class PowerBox : MonoBehaviour
     {
         scriptCarro.baseStats.TopSpeed = 15f;
         isOleoActive = false;
+        isDinamiteActive = false;
     }
 
     public void RodaCarro()
@@ -152,21 +138,21 @@ public class PowerBox : MonoBehaviour
 
                 if (currentBullet == 0 && bulletPrefabs.Length > 0)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
                     
                 }
                 else if (currentBullet == 1 && bulletPrefabs.Length > 1)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[2].position, bulletSpawns[2].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
                     
                 }
                 else if (currentBullet == 2 && bulletPrefabs.Length > 2)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
                 }
                 else if (currentBullet == 3 && bulletPrefabs.Length > 3)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
                 }
 
                 readyToFire = false;

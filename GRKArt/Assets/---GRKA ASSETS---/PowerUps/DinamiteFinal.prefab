@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 675546255426502925}
   - component: {fileID: 9000410867098964594}
   - component: {fileID: -8541034771962871104}
+  - component: {fileID: -1951799818195143824}
   m_Layer: 0
   m_Name: DinamiteFinal
   m_TagString: Dinamite
@@ -128,7 +129,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -152,3 +153,26 @@ MonoBehaviour:
   lifetime: 3
   rotationSpeed: 100
   rb: {fileID: 675546255426502925}
+  radius: 4
+  power: 10
+--- !u!135 &-1951799818195143824
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614152552998577145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 30
+  m_Center: {x: 0, y: 0.46804696, z: 0}

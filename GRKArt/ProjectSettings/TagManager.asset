@@ -8,6 +8,11 @@ TagManager:
   - "\xD3leo"
   - Dinamite
   - Feno
+  - CrashMode
+  - Ground
+  - Player2
+  - Cam1
+  - Cam2
   layers:
   - Default
   - TransparentFX
