@@ -9,12 +9,14 @@ public class KartSelector : MonoBehaviour
     public int selectedCar = 0;
     public static GameObject currentCar;
     public GameObject carousel;
-
     public string sceneName;
+
+    public GameObject[] confirmedCar;
+    private int playerSEL;
 
     public void Update()
     {
-       
+        
         carousel.transform.position = Vector3.Lerp(carousel.transform.position, new Vector3 (selectedCar * -5, 0, 0), Time.deltaTime*1);
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -52,16 +54,17 @@ public class KartSelector : MonoBehaviour
         
     }
 
-
+    
     public void SelectCar()
     {
-        currentCar = carList[selectedCar];
-        SceneManager.LoadSceneAsync(sceneName);
+        
+            currentCar = carList[selectedCar];
+         SceneManager.LoadSceneAsync(sceneName);
     }
 
-    public void SelectCar2()
+   public void SelectCar2()
     {
-        currentCar = carList[selectedCar];
-        SceneManager.LoadSceneAsync(sceneName);
-    }
+      currentCar = carList[selectedCar];
+       SceneManager.LoadSceneAsync(sceneName);
+   }
 }

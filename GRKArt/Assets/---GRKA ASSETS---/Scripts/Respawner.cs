@@ -13,14 +13,17 @@ public class Respawner : MonoBehaviour
     private void Start()
     {
         GameObject carSelected;
+       
 
-        if(KartSelector.currentCar == null)
+        if (KartSelector.currentCar == null)
         {
-            carSelected = carList[0];
+           carSelected = carList[0];
+            
         }
         else
         {
             carSelected = KartSelector.currentCar;
+            
         }
         
         GameObject car = Instantiate(carSelected, spawnPoints[0].position, spawnPoints[0].rotation);

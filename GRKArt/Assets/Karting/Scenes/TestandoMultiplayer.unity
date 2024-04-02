@@ -30885,8 +30885,7 @@ Transform:
   m_LocalPosition: {x: 15.98891, y: 3.250001, z: -2.8944764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2037937428777096488}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 4.38, y: 0, z: 0}
 --- !u!114 &1207105320
@@ -34284,8 +34283,7 @@ Transform:
   m_LocalPosition: {x: 15.98891, y: 3.250001, z: -2.8944764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1416745285}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1318605594 stripped
@@ -36758,17 +36756,37 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1316530209}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3570696922607582476, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960521991484866054, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_Name
+      value: ImageFeno2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960521991484866054, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
       propertyPath: m_Name
-      value: StunFeno
+      value: StunFeno2
       objectReference: {fileID: 0}
     - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stun
       objectReference: {fileID: 0}
     - target: {fileID: 7337993415169784273, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
@@ -36880,12 +36898,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f59629638f1e8488f7a92fc46a5685, type: 3}
---- !u!224 &1416745285 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7337993415169784273, guid: 15f59629638f1e8488f7a92fc46a5685,
-    type: 3}
-  m_PrefabInstance: {fileID: 1416745284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1423887435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21a4c1e72ead734bac82281b627cb93,
@@ -54736,17 +54748,32 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1207105319}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3570696922607582476, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960521991484866054, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
       propertyPath: m_Name
-      value: StunFeno
+      value: StunFeno1
       objectReference: {fileID: 0}
     - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
+        type: 3}
+      propertyPath: m_TagString
+      value: Stun
       objectReference: {fileID: 0}
     - target: {fileID: 7337993415169784273, guid: 15f59629638f1e8488f7a92fc46a5685,
         type: 3}
@@ -54856,38 +54883,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2037937428777096490}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f59629638f1e8488f7a92fc46a5685, type: 3}
---- !u!224 &2037937428777096488 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7337993415169784273, guid: 15f59629638f1e8488f7a92fc46a5685,
-    type: 3}
-  m_PrefabInstance: {fileID: 2037937428777096487}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2037937428777096489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6820800837458739722, guid: 15f59629638f1e8488f7a92fc46a5685,
-    type: 3}
-  m_PrefabInstance: {fileID: 2037937428777096487}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2037937428777096490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037937428777096489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0139ebb87a7dac94a90c9a87f5da3cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stuns: []
-  fenoscript: {fileID: 0}
 --- !u!1001 &2042733063034435450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55109,3 +55106,5 @@ SceneRoots:
   - {fileID: 743940295}
   - {fileID: 382814983}
   - {fileID: 478084127}
+  - {fileID: 2037937428777096487}
+  - {fileID: 1416745284}

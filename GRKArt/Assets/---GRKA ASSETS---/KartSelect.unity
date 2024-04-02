@@ -1636,6 +1636,9 @@ MonoBehaviour:
   selectedCar: 0
   carousel: {fileID: 324963224}
   sceneName: TestandoMultiplayer
+  confirmedCar:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1660694770
 Transform:
   m_ObjectHideFlags: 0
