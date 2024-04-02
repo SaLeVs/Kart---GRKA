@@ -13,21 +13,21 @@ public class Respawner : MonoBehaviour
     private void Start()
     {
         GameObject carSelected;
-       
+        GameObject carSelected2;
 
-        if (KartSelector.currentCar == null)
+       if(KartSelector.currentCar == null && KartSelector.currentCar2 == null)
         {
-           carSelected = carList[0];
-            
+            carSelected = carList[0];
+            carSelected2 = carList[0];
         }
         else
         {
             carSelected = KartSelector.currentCar;
-            
+            carSelected2 = KartSelector.currentCar2;
         }
         
         GameObject car = Instantiate(carSelected, spawnPoints[0].position, spawnPoints[0].rotation);
-        GameObject car2 = Instantiate(carSelected, spawnPoints[1].position, spawnPoints[1].rotation);
+        GameObject car2 = Instantiate(carSelected2, spawnPoints[1].position, spawnPoints[1].rotation);
         car.tag = "Player";
         car2.tag = "Player2";
         virtualCameras[0].Follow = car.transform;

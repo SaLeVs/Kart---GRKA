@@ -25,7 +25,10 @@ public class Feno : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+       GameObject playerObj = other.transform.parent.gameObject;
+        
+
+        if (playerObj.CompareTag("Player"))
         {
             ActivateImage(Stuns[0]);
             Invoke("Desativa1", 5f);
@@ -33,7 +36,7 @@ public class Feno : MonoBehaviour
             Debug.Log("Colidiufi");
         }
 
-        if (other.CompareTag("Player2"))
+        if (playerObj.CompareTag("Player2"))
         {
             ActivateImage(Stuns[1]);
             Invoke("Desativa2", 5f);

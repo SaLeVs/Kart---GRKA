@@ -7,12 +7,13 @@ public class KartSelector : MonoBehaviour
 {
     public GameObject[] carList;
     public int selectedCar = 0;
+    public int selectedCar2= 0;
     public static GameObject currentCar;
+    public static GameObject currentCar2;
     public GameObject carousel;
     public string sceneName;
 
-    public GameObject[] confirmedCar;
-    private int playerSEL;
+    private bool escolheu = false;
 
     public void Update()
     {
@@ -33,38 +34,56 @@ public class KartSelector : MonoBehaviour
     public void RightButton()
     {
         currentCar = carList[selectedCar];
+        currentCar2 = carList[selectedCar2];
         selectedCar++;
+        selectedCar2++;
 
         if (selectedCar > carList.Length - 1)
         {
             selectedCar = 0;
         }
-
+        if (selectedCar2 > carList.Length - 1)
+        {
+            selectedCar2 = 0;
+        }
     }
 
     public void LeftButton()
     {
         currentCar = carList[selectedCar];
+        currentCar2 = carList[selectedCar2];
         selectedCar--;
+        selectedCar2--;
 
         if (selectedCar < 0)
         {
             selectedCar = carList.Length - 1;
         }
-        
+
+        if (selectedCar2 < 0)
+        {
+            selectedCar2 = carList.Length - 1;
+        }
+
     }
 
     
     public void SelectCar()
     {
-        
+        if (!escolheu)
+        {
             currentCar = carList[selectedCar];
-         SceneManager.LoadSceneAsync(sceneName);
+            escolheu = true;
+            Debug.Log("Escolheu1");
+        }
+        else
+        {
+            currentCar2 = carList[selectedCar2];
+            Debug.Log("Escolheu2");
+            SceneManager.LoadSceneAsync(sceneName);
+        }
+         
     }
 
-   public void SelectCar2()
-    {
-      currentCar = carList[selectedCar];
-       SceneManager.LoadSceneAsync(sceneName);
-   }
+  
 }

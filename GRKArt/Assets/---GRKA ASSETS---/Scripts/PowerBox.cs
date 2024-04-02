@@ -138,12 +138,12 @@ public class PowerBox : MonoBehaviour
 
                 if (currentBullet == 0 && bulletPrefabs.Length > 0)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
                     
                 }
                 else if (currentBullet == 1 && bulletPrefabs.Length > 1)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[2].position, bulletSpawns[2].rotation);
                     
                 }
                 else if (currentBullet == 2 && bulletPrefabs.Length > 2)
@@ -152,7 +152,7 @@ public class PowerBox : MonoBehaviour
                 }
                 else if (currentBullet == 3 && bulletPrefabs.Length > 3)
                 {
-                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
+                    bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
                 }
 
                 readyToFire = false;
