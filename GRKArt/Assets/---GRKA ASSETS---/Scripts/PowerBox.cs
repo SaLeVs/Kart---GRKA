@@ -1,3 +1,4 @@
+using Google.Protobuf.WellKnownTypes;
 using KartGame.KartSystems;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,9 +10,12 @@ public class PowerBox : MonoBehaviour
     public Transform[] bulletSpawns;
     public Transform[] pecas;
 
-    public int currentBullet = 0;
-    public bool readyToFire = false;
+    static public int currentBullet = 0;
+    static public int currentBullet2 = 0;
+    static public bool readyToFire = false;
+    static public bool readyToFire2 = false;
     public string fireButtonName = "Fire1";
+    public string fireButtonName2 = "Fire2";
     private float pwpLife = 4f;
     public ArcadeKart scriptCarro;
     public Feno fenoScript;
@@ -23,22 +27,63 @@ public class PowerBox : MonoBehaviour
     private bool isRotating = false;
     public float launchVelocity = 10f;
 
+    public static int qualBala;
+    public static int qualBala2;
 
-
+    private CanvasControl canvasControl;
+    
+   
     void Start()
     {
         fenoScript = GetComponent<Feno>();
         scriptCarro = GetComponent<ArcadeKart>();
         KeyboardInput input = GetComponent<KeyboardInput>();
+        
         fireButtonName = input.FireButtonName;
+        
         readyToFire = false;
+
+        canvasControl = FindObjectOfType<CanvasControl>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
+
+        /* if(other.tag == "Player")
+        {
+            Debug.Log("Funcionou");
+            if (other.CompareTag("Item"))
+            {
+                RandomizeBullet();
+                Destroy(other.gameObject);
+            }
+        }
+        if (other.tag == "Player")
+        {
+            Debug.Log("Funcionou");
+            if (other.CompareTag("Item"))
+            {
+                RandomizeBullet2();
+                Destroy(other.gameObject);
+            }
+        } */
         if (other.CompareTag("Item"))
         {
-            RandomizeBullet();
+            // Verifica se o script está anexado ao objeto com a tag "Player"
+            if (gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player 1 colidiu com o item.");
+                RandomizeBullet();
+            }
+            // Verifica se o script está anexado ao objeto com a tag "Player2"
+            else if (gameObject.CompareTag("Player2"))
+            {
+                Debug.Log("Player 2 colidiu com o item.");
+                RandomizeBullet2();
+            }
+
+            // Destruir o objeto "Item"
             Destroy(other.gameObject);
         }
 
@@ -76,8 +121,15 @@ public class PowerBox : MonoBehaviour
     {
         currentBullet = Random.Range(0, bulletPrefabs.Length);
         readyToFire = true;
+        
     }
 
+    public void RandomizeBullet2()
+    {
+        
+        currentBullet2 = Random.Range(0, bulletPrefabs.Length);
+        readyToFire2 = true;
+    }
 
     public void pwpOleo()
     {
@@ -156,6 +208,35 @@ public class PowerBox : MonoBehaviour
                 }
 
                 readyToFire = false;
+            }
+        }
+
+        if (readyToFire2)
+        {
+            if (Input.GetButtonDown(fireButtonName))
+            {
+                GameObject bullet2;
+
+                if (currentBullet2 == 0 && bulletPrefabs.Length > 0)
+                {
+                    bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[0].position, bulletSpawns[0].rotation);
+
+                }
+                else if (currentBullet2 == 1 && bulletPrefabs.Length > 1)
+                {
+                    bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[2].position, bulletSpawns[2].rotation);
+
+                }
+                else if (currentBullet2 == 2 && bulletPrefabs.Length > 2)
+                {
+                    bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[3].position, bulletSpawns[3].rotation);
+                }
+                else if (currentBullet2 == 3 && bulletPrefabs.Length > 3)
+                {
+                    bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                }
+
+                readyToFire2 = false;
             }
         }
 

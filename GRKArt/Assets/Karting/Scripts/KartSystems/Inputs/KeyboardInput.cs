@@ -8,7 +8,7 @@ namespace KartGame.KartSystems {
         public string AccelerateButtonName = "Accelerate";
         public string BrakeButtonName = "Brake";
         public string FireButtonName = "Fire1";
-
+        
         public override InputData GenerateInput() {
             return new InputData
             {

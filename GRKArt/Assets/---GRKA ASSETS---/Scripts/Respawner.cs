@@ -49,7 +49,7 @@ public class Respawner : MonoBehaviour
         input2.TurnInputName = "HorizontalP2";
         input2.AccelerateButtonName = "AccelerateP2";
         input2.BrakeButtonName = "BrakeP2";
-        input.FireButtonName = "Fire1P2";
+        input2.FireButtonName = "Fire1P2";
 
     }
 }
