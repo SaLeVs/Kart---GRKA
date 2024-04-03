@@ -203,7 +203,7 @@ public class PowerBox : MonoBehaviour
 
         if (readyToFire)
         {
-            if (Input.GetButtonDown(fireButtonName))
+            if (readyToFire && gameObject.CompareTag("Player") && Input.GetButtonDown(fireButtonName))
             {
                 GameObject bullet;
 
@@ -232,7 +232,7 @@ public class PowerBox : MonoBehaviour
 
         if (readyToFire2)
         {
-            if (Input.GetButtonDown(fireButtonName))
+            if (readyToFire2 && gameObject.CompareTag("Player2") && Input.GetButtonDown(fireButtonName))
             {
                 GameObject bullet2;
 

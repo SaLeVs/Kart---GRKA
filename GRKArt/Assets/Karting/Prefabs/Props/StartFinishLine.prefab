@@ -29,11 +29,12 @@ Transform:
   m_GameObject: {fileID: 6810259069447468715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: -0.96, z: 10}
+  m_LocalPosition: {x: 16, y: -0.73, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 442139602053206941}
+  - {fileID: 6138098119154764133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6810259069450824363
@@ -582,6 +583,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LINHA DE CHEGADA definitiva (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dd694aa509655249ac06cea1031effb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2950727999916181138, guid: 4dd694aa509655249ac06cea1031effb,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -832,4 +838,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4dd694aa509655249ac06cea1031effb,
     type: 3}
   m_PrefabInstance: {fileID: 119471685236618358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5954988831551516302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6810259069447432843}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.84843296
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.84843296
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.84843296
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0736
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cf3bdb35da1bbf469267718c23121b0,
+        type: 3}
+      propertyPath: m_Name
+      value: 'LINHA DE CHEGADA '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cf3bdb35da1bbf469267718c23121b0, type: 3}
+--- !u!4 &6138098119154764133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cf3bdb35da1bbf469267718c23121b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5954988831551516302}
   m_PrefabAsset: {fileID: 0}
