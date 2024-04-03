@@ -14,6 +14,7 @@ TagManager:
   - Cam1
   - Cam2
   - Stun
+  - Ball
   layers:
   - Default
   - TransparentFX

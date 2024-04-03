@@ -15,5 +15,8 @@ public class Bullet : MonoBehaviour
         rb.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
-    
+
+   
+
+
 }

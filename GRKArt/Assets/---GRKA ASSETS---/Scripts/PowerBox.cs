@@ -23,6 +23,7 @@ public class PowerBox : MonoBehaviour
     private bool isOleoActive = false;
     private bool isDinamiteActive = false;
     private bool isFenoActive = false;
+    private bool isBallActive = false;
     private float rotationSpeed = 720f;
     private bool isRotating = false;
     public float launchVelocity = 10f;
@@ -99,6 +100,18 @@ public class PowerBox : MonoBehaviour
             }
         }
 
+        if (other.CompareTag("Ball"))
+        {
+            if (!isBallActive)
+            {
+                pwpBall();
+                RodaCarro();
+                isBallActive = true;
+                Invoke("ResetPwP", 3f);
+                Destroy(other.gameObject, 3f);
+            }
+        }
+
         if (other.CompareTag("Dinamite"))
         {
             if (!isDinamiteActive)
@@ -143,6 +156,12 @@ public class PowerBox : MonoBehaviour
 
     }
 
+    public void pwpBall()
+    {
+        scriptCarro.baseStats.TopSpeed = 0f;
+    }
+
+
 
     private void ResetPwP()
     {
@@ -165,7 +184,7 @@ public class PowerBox : MonoBehaviour
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < 7f)
+        while (elapsedTime < 5f)
         {
             foreach (Transform peca in pecas)
             {
