@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class KartSelector : MonoBehaviour
 {
@@ -12,14 +14,16 @@ public class KartSelector : MonoBehaviour
      public static GameObject currentCar;
      public static GameObject currentCar2;
      public GameObject carousel;
-    public GameObject carousel2;
-    public string sceneName;
+     public GameObject carousel2;
+     public string sceneName;
 
      private bool escolheu = false;
+     
 
     private void Start()
     {
         escolheu = false;
+        
         carousel2.SetActive(false);
     }
 
@@ -129,8 +133,8 @@ public void SelectCar()
              currentCar = carList[selectedCar];
              escolheu = true;
              Debug.Log("Escolheu1");
-            carousel.SetActive(false);
-            carousel2.SetActive(true);
+             carousel.SetActive(false);
+             carousel2.SetActive(true);
         }
          else
          {

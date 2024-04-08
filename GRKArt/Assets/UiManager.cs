@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI text;
+    public TextMeshProUGUI text2;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        text.enabled = true;
+        text2.enabled = false;
+    }
+    public void P2()
+    {
+        text.enabled = false;
+        text2.enabled = true;
     }
 }
