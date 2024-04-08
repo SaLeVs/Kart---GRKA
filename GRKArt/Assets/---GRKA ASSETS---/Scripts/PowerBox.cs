@@ -19,7 +19,7 @@ public class PowerBox : MonoBehaviour
     private float pwpLife = 4f;
     public ArcadeKart scriptCarro;
     public Feno fenoScript;
-
+    
     private bool isOleoActive = false;
     private bool isDinamiteActive = false;
     private bool isFenoActive = false;
@@ -32,10 +32,21 @@ public class PowerBox : MonoBehaviour
     public static int qualBala2;
 
     private CanvasControl canvasControl;
-    
-   
+    public ArcadeEngineAudio arcadeEngineAudio;
+
     void Start()
     {
+        GameObject parentObject = GameObject.Find("ArcadeEngineAudio");
+
+        if (parentObject != null)
+        {
+            arcadeEngineAudio = parentObject.GetComponentInChildren<ArcadeEngineAudio>();
+        }
+        else
+        {
+            Debug.LogError("Não foi possível encontrar o objeto pai com o nome especificado.");
+        }
+
         fenoScript = GetComponent<Feno>();
         scriptCarro = GetComponent<ArcadeKart>();
         KeyboardInput input = GetComponent<KeyboardInput>();
@@ -45,46 +56,25 @@ public class PowerBox : MonoBehaviour
         readyToFire = false;
 
         canvasControl = FindObjectOfType<CanvasControl>();
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-
-        /* if(other.tag == "Player")
-        {
-            Debug.Log("Funcionou");
-            if (other.CompareTag("Item"))
-            {
-                RandomizeBullet();
-                Destroy(other.gameObject);
-            }
-        }
-        if (other.tag == "Player")
-        {
-            Debug.Log("Funcionou");
-            if (other.CompareTag("Item"))
-            {
-                RandomizeBullet2();
-                Destroy(other.gameObject);
-            }
-        } */
         if (other.CompareTag("Item"))
         {
-            // Verifica se o script está anexado ao objeto com a tag "Player"
             if (gameObject.CompareTag("Player"))
             {
                 Debug.Log("Player 1 colidiu com o item.");
                 RandomizeBullet();
             }
-            // Verifica se o script está anexado ao objeto com a tag "Player2"
             else if (gameObject.CompareTag("Player2"))
             {
                 Debug.Log("Player 2 colidiu com o item.");
                 RandomizeBullet2();
             }
 
-            // Destruir o objeto "Item"
             Destroy(other.gameObject);
         }
 
@@ -211,19 +201,31 @@ public class PowerBox : MonoBehaviour
                 {
                     bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[0].position, bulletSpawns[0].rotation);
                     
+                        arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchCanon);
+                    
+                    
                 }
                 else if (currentBullet == 1 && bulletPrefabs.Length > 1)
                 {
                     bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[2].position, bulletSpawns[2].rotation);
                     
+                        arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchDinamite);
+                    
                 }
                 else if (currentBullet == 2 && bulletPrefabs.Length > 2)
                 {
                     bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[3].position, bulletSpawns[3].rotation);
+                    
+                        
+                    arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchFeno);
+
                 }
                 else if (currentBullet == 3 && bulletPrefabs.Length > 3)
                 {
                     bullet = Instantiate(bulletPrefabs[currentBullet], bulletSpawns[1].position, bulletSpawns[1].rotation);
+                    arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchOleo);
+
+
                 }
 
                 readyToFire = false;
@@ -239,20 +241,32 @@ public class PowerBox : MonoBehaviour
                 if (currentBullet2 == 0 && bulletPrefabs.Length > 0)
                 {
                     bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[0].position, bulletSpawns[0].rotation);
+                    
+                        arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchCanon);
+                    
 
                 }
                 else if (currentBullet2 == 1 && bulletPrefabs.Length > 1)
                 {
                     bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[2].position, bulletSpawns[2].rotation);
-
+                    
+                        arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchDinamite);
+                    
                 }
                 else if (currentBullet2 == 2 && bulletPrefabs.Length > 2)
                 {
                     bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[3].position, bulletSpawns[3].rotation);
+
+                    arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchFeno);
+
                 }
                 else if (currentBullet2 == 3 && bulletPrefabs.Length > 3)
                 {
                     bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[1].position, bulletSpawns[1].rotation);
+
+                    arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchOleo);
+
+
                 }
 
                 readyToFire2 = false;

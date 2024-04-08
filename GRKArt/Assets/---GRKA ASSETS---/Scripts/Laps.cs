@@ -9,6 +9,9 @@ public class Laps : MonoBehaviour
     public event EventHandler OnPlayerCorrectCheckpoint;
     public event EventHandler OnPlayerWrongCheckpoint;
 
+    public event EventHandler OnPlayer2CorrectCheckpoint;
+    public event EventHandler OnPlayer2WrongCheckpoint;
+
     private List<CheckGRKA> checkGRKAsList;
     private List<CheckGRKA> checkP2GRKAsList;
     private int nextCheckGRKAIndex, next2CheckGRKAIndex;
@@ -144,7 +147,7 @@ public class Laps : MonoBehaviour
         else
         {
             OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
-            
+            Debug.Log("FP1");
             CheckGRKA correctCheckGRKA = checkGRKAsList[nextCheckGRKAIndex];
             correctCheckGRKA.Show();
         }
@@ -159,7 +162,7 @@ public class Laps : MonoBehaviour
             CheckGRKA correctCheckGRKA = checkGRKAsList[next2CheckGRKAIndex];
             correctCheckGRKA.hide();
             next2CheckGRKAIndex = (next2CheckGRKAIndex + 1) % checkGRKAsList.Count;
-            OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
+            OnPlayer2CorrectCheckpoint?.Invoke(this, EventArgs.Empty);
 
             if (next2CheckGRKAIndex == 0)
             {
@@ -177,7 +180,7 @@ public class Laps : MonoBehaviour
         }
         else
         {
-            OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
+            OnPlayer2WrongCheckpoint?.Invoke(this, EventArgs.Empty);
             Debug.Log("FP2");
             CheckGRKA correctCheckGRKA = checkGRKAsList[next2CheckGRKAIndex];
             correctCheckGRKA.Show();

@@ -24,11 +24,24 @@ public class Dinamite : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.gameObject.tag == "Ground")
+        if(collision.collider.gameObject.tag == "Ground" || collision.collider.gameObject.tag == "Player")
         {
             rb.isKinematic = true;
             gameObject.GetComponent<Collider>().isTrigger = true;
             gameObject.GetComponent<CapsuleCollider>().radius = 10;
+
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            Vector3 explosionPos = transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+            foreach (Collider hit in colliders)
+            {
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                    rb.AddExplosionForce(power, explosionPos, radius, 50.0F);
+
+            }
         }
 
         

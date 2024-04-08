@@ -16,6 +16,14 @@ namespace KartGame.KartSystems
         public AudioSource RunningSound;
         [Tooltip("What audio clip should play when the kart is drifting")]
         public AudioSource Drift;
+        public AudioSource LaunchDinamite;
+        public AudioSource Dinamite;
+        public AudioSource LaunchFeno;
+        public AudioSource Feno;
+        public AudioSource LaunchOleo;
+        public AudioSource Oleo;
+        public AudioSource LaunchCanon;
+        public AudioSource Canon;
         [Tooltip("Maximum Volume the running sound will be at full speed")]
         [Range(0.1f, 1.0f)]public float RunningSoundMaxVolume = 1.0f;
         [Tooltip("Maximum Pitch the running sound will be at full speed")]
@@ -62,5 +70,11 @@ namespace KartGame.KartSystems
 
             
         }
+
+        public void PlayAudio(AudioSource audioSource)
+        {
+            audioSource.Play();
+        }
+
     }
 }

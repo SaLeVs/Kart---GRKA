@@ -15,6 +15,7 @@ public class CheckGRKAUi : MonoBehaviour
     public TextMeshProUGUI[] record;
     public GameObject WinPanel;
     public GameObject WinPanel2;
+    public GameObject gameObject2;
     public float timeLevel;
     public float melhorVolta = Mathf.Infinity;
 
@@ -27,7 +28,10 @@ public class CheckGRKAUi : MonoBehaviour
     {
         laps.OnPlayerCorrectCheckpoint += laps_OnPlayerCorrectCheckpoint;
         laps.OnPlayerWrongCheckpoint += laps_OnPlayerWrongCheckpoint;
+        laps.OnPlayer2CorrectCheckpoint += laps_OnPlayer2CorrectCheckpoint;
+        laps.OnPlayer2WrongCheckpoint += laps_OnPlayer2WrongCheckpoint;
         Hide();
+        Hide2();
     }
 
     private void laps_OnPlayerCorrectCheckpoint(object sender, System.EventArgs e)
@@ -40,6 +44,16 @@ public class CheckGRKAUi : MonoBehaviour
         Show();
     }
 
+    private void laps_OnPlayer2CorrectCheckpoint(object sender, System.EventArgs e)
+    {
+        Hide2();
+    }
+
+    private void laps_OnPlayer2WrongCheckpoint(object sender, System.EventArgs e)
+    {
+        Show2();
+    }
+
     private void Show()
     {
         gameObject.SetActive(true);
@@ -48,6 +62,16 @@ public class CheckGRKAUi : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void Show2()
+    {
+        gameObject2.SetActive(true);
+    }
+
+    private void Hide2()
+    {
+        gameObject2.SetActive(false);
     }
 
     public void UpdateUIP1(int lapsP1Complete)
