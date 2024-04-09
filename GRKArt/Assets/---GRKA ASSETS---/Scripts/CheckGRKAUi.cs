@@ -76,12 +76,12 @@ public class CheckGRKAUi : MonoBehaviour
 
     public void UpdateUIP1(int lapsP1Complete)
     {
-        voltas[0].text = "Voltas: " + lapsP1Complete;
+        voltas[0].text = "LAP " + lapsP1Complete + ":" + "3";
 
     }
 
     public void UpdateUIP2(int lapsP2Complete)
     {
-        voltas[1].text = "Voltas: " + lapsP2Complete;
+        voltas[1].text = "LAP " + lapsP2Complete + ":" + "3";
     }
 }

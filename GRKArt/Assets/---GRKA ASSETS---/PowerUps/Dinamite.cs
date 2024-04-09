@@ -1,3 +1,4 @@
+using KartGame.KartSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class Dinamite : MonoBehaviour
     public float radius = 30.0F;
     public float power = 60.0F;
 
+    public ParticleSystem collisionParticle;
+    public ArcadeEngineAudio arcadeEngineAudio;
+
     void Start()
     {
         Destroy(gameObject, lifetime);
@@ -20,12 +24,25 @@ public class Dinamite : MonoBehaviour
         rb.useGravity = true;
         gameObject.GetComponent<SphereCollider>().enabled = false;
 
+        GameObject parentObject = GameObject.Find("ArcadeEngineAudio");
+
+        if (parentObject != null)
+        {
+            arcadeEngineAudio = parentObject.GetComponentInChildren<ArcadeEngineAudio>();
+        }
+        else
+        {
+            Debug.LogError("Não foi possível encontrar o objeto pai com o nome especificado.");
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.gameObject.tag == "Ground" || collision.collider.gameObject.tag == "Player")
         {
+            collisionParticle.Play();
+            arcadeEngineAudio.PlayAudio(arcadeEngineAudio.Dinamite);
             rb.isKinematic = true;
             gameObject.GetComponent<Collider>().isTrigger = true;
             gameObject.GetComponent<CapsuleCollider>().radius = 10;

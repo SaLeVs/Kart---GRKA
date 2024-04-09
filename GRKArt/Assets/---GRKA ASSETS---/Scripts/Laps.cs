@@ -71,7 +71,7 @@ public class Laps : MonoBehaviour
             int seconds = Mathf.FloorToInt(time % 60);
             int milliseconds = Mathf.FloorToInt((time * 100) % 100);
 
-            uiLaps.txtTime[0].text = minutes.ToString("LAP: 00") + ":" + seconds.ToString("00") + ":" + milliseconds.ToString("00");
+            uiLaps.txtTime[0].text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + milliseconds.ToString("00");
 
             
         }
@@ -92,7 +92,7 @@ public class Laps : MonoBehaviour
             int seconds2 = Mathf.FloorToInt(time % 60);
             int milliseconds2 = Mathf.FloorToInt((time * 100) % 100);
 
-            uiLaps.txtTime[1].text = minutes2.ToString("LAP: 00") + ":" + seconds2.ToString("00") + ":" + milliseconds2.ToString("00");
+            uiLaps.txtTime[1].text = minutes2.ToString("00") + ":" + seconds2.ToString("00") + ":" + milliseconds2.ToString("00");
 
 
         }
@@ -104,14 +104,14 @@ public class Laps : MonoBehaviour
             acaboufi2 = false;
         }
 
-        if (lapsP1Complete == 1)
+        if (lapsP1Complete == 3)
         {
             StartCoroutine(LoadWinSceneAfterDelay());
             uiLaps.WinPanel.SetActive(true);
             
         }
 
-        if(lapsP2Complete == 1)
+        if(lapsP2Complete == 3)
         {
             StartCoroutine(LoadWinSceneAfterDelay());
             uiLaps.WinPanel2.SetActive(true);

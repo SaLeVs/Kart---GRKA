@@ -33,6 +33,9 @@ public class PowerBox : MonoBehaviour
 
     private CanvasControl canvasControl;
     public ArcadeEngineAudio arcadeEngineAudio;
+    public float disableTime = 3f;
+
+    public ParticleSystem bomba;
 
     void Start()
     {
@@ -75,13 +78,14 @@ public class PowerBox : MonoBehaviour
                 RandomizeBullet2();
             }
 
-            Destroy(other.gameObject);
+            StartCoroutine(DisableObject(other.gameObject));
         }
 
         if (other.CompareTag("Óleo"))
         {
             if (!isOleoActive)
             {
+                arcadeEngineAudio.PlayAudio(arcadeEngineAudio.Oleo);
                 pwpOleo();
                 RodaCarro();
                 isOleoActive = true;
@@ -94,11 +98,13 @@ public class PowerBox : MonoBehaviour
         {
             if (!isBallActive)
             {
+                
                 pwpBall();
                 RodaCarro();
                 isBallActive = true;
                 Invoke("ResetPwP", 3f);
                 Destroy(other.gameObject, 3f);
+                bomba.Play();
             }
         }
 
@@ -186,6 +192,13 @@ public class PowerBox : MonoBehaviour
         }
 
         isRotating = false;
+    }
+
+    IEnumerator DisableObject(GameObject objToDisable)
+    {
+        objToDisable.SetActive(false);
+        yield return new WaitForSeconds(disableTime);
+        objToDisable.SetActive(true);
     }
 
     void Update()

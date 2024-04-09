@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class Óleo : MonoBehaviour
 {
+    public ParticleSystem collisionParticle;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            
-             ArcadeKart arcadeKart = other.GetComponent<ArcadeKart>();
+            if (collisionParticle != null) 
+            {
+                collisionParticle.Play();
+            }
+            ArcadeKart arcadeKart = other.GetComponent<ArcadeKart>();
 
 
             if (arcadeKart != null)
@@ -23,7 +27,10 @@ public class Óleo : MonoBehaviour
 
         if (other.CompareTag("Player2"))
         {
-
+            if (collisionParticle != null) 
+            {
+                collisionParticle.Play();
+            }
             ArcadeKart arcadeKart = other.GetComponent<ArcadeKart>();
 
 
