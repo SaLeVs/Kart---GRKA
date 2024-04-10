@@ -16,37 +16,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.1
+      value: -91.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.42
+      value: -6.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.51
+      value: 19.032295
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9934433
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.11432607
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bc458e0cb8b68546a9c9d0155d48904,
         type: 3}
@@ -169,6 +169,16 @@ PrefabInstance:
         type: 3}
       propertyPath: boostStats.modifiers.TopSpeed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957102644646649599, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: disableGameObjectWhenActivated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957102644646649599, guid: ca718117a11f745b292c7dba21f42c00,
+        type: 3}
+      propertyPath: boostStats.modifiers.AccelerationCurve
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2047336663367359581, guid: ca718117a11f745b292c7dba21f42c00,
         type: 3}

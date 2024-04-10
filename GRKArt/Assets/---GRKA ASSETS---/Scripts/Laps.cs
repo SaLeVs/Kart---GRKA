@@ -104,16 +104,16 @@ public class Laps : MonoBehaviour
             acaboufi2 = false;
         }
 
-        if (lapsP1Complete == 3)
+        if (lapsP1Complete == 4)
         {
             StartCoroutine(LoadWinSceneAfterDelay());
             uiLaps.WinPanel.SetActive(true);
             
         }
 
-        if(lapsP2Complete == 3)
+        if(lapsP2Complete == 4)
         {
-            StartCoroutine(LoadWinSceneAfterDelay());
+            StartCoroutine(LoadWinScene2AfterDelay());
             uiLaps.WinPanel2.SetActive(true);
             
         }
@@ -207,6 +207,13 @@ public class Laps : MonoBehaviour
     }
 
     IEnumerator LoadWinSceneAfterDelay()
+    {
+        lvlChanger.FadeToLevel(3);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(lvlChanger.levelToLoad);
+    }
+
+    IEnumerator LoadWinScene2AfterDelay()
     {
         lvlChanger.FadeToLevel(4);
         yield return new WaitForSeconds(3f);

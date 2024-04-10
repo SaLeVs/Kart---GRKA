@@ -59,7 +59,7 @@ public class PowerBox : MonoBehaviour
         readyToFire = false;
 
         canvasControl = FindObjectOfType<CanvasControl>();
-
+        vai();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,12 +69,12 @@ public class PowerBox : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player 1 colidiu com o item.");
+                
                 RandomizeBullet();
             }
             else if (gameObject.CompareTag("Player2"))
             {
-                Debug.Log("Player 2 colidiu com o item.");
+                
                 RandomizeBullet2();
             }
 
@@ -98,7 +98,6 @@ public class PowerBox : MonoBehaviour
         {
             if (!isBallActive)
             {
-                
                 pwpBall();
                 RodaCarro();
                 isBallActive = true;
@@ -119,11 +118,21 @@ public class PowerBox : MonoBehaviour
             }
         }
 
+
         if (other.CompareTag("Feno"))
         {
             
         }
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("obs"))
+        {
+            obstacle();
+            Invoke("ResetPwP", 3f);
+        }
     }
 
     public void RandomizeBullet()
@@ -157,13 +166,28 @@ public class PowerBox : MonoBehaviour
         scriptCarro.baseStats.TopSpeed = 0f;
     }
 
+    public void obstacle()
+    {
+        scriptCarro.baseStats.TopSpeed = 5f;
+    }
 
+    public void vai()
+    {
+        scriptCarro.baseStats.TopSpeed = -1f;
+        Invoke("Resetstart", 3f);
+    }
 
+    public void Resetstart()
+    {
+        scriptCarro.baseStats.TopSpeed = 15f;
+
+    }
     private void ResetPwP()
     {
         scriptCarro.baseStats.TopSpeed = 15f;
         isOleoActive = false;
         isDinamiteActive = false;
+        isBallActive = false;
     }
 
     public void RodaCarro()
@@ -263,7 +287,7 @@ public class PowerBox : MonoBehaviour
                 {
                     bullet2 = Instantiate(bulletPrefabs[currentBullet2], bulletSpawns[2].position, bulletSpawns[2].rotation);
                     
-                        arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchDinamite);
+                    arcadeEngineAudio.PlayAudio(arcadeEngineAudio.LaunchDinamite);
                     
                 }
                 else if (currentBullet2 == 2 && bulletPrefabs.Length > 2)

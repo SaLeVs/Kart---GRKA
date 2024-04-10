@@ -12,15 +12,15 @@ EditorBuildSettings:
     path: Assets/---GRKA ASSETS---/KartSelect.unity
     guid: 10ea37f8971978946a726eca925def91
   - enabled: 1
-    path: Assets/Karting/Scenes/MainScene.unity
-    guid: 92786e23da2af4a4f8803aaf44c47121
+    path: Assets/Karting/Scenes/TestandoMultiplayer.unity
+    guid: 4024da7d1e1cf4c43bdf30c436ea3f8e
+  - enabled: 1
+    path: Assets/Karting/Scenes/WinScene1.unity
+    guid: 5ef7716aadf96444282c08f442d49539
+  - enabled: 1
+    path: Assets/Karting/Scenes/WinScene2.unity
+    guid: 13b8d46e74d723f47979ff904d3c5c14
   - enabled: 1
     path: Assets/Karting/Scenes/LoseScene.unity
     guid: 9c449e01147824b419cda406398fb2e7
-  - enabled: 1
-    path: Assets/Karting/Scenes/WinScene.unity
-    guid: d6801f2e59f75ee4b919cf5da4e48e3b
-  - enabled: 1
-    path: Assets/Karting/Scenes/TestandoMultiplayer.unity
-    guid: 4024da7d1e1cf4c43bdf30c436ea3f8e
   m_configObjects: {}
