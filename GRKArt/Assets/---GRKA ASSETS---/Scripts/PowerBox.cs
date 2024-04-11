@@ -9,6 +9,7 @@ public class PowerBox : MonoBehaviour
     public GameObject[] bulletPrefabs;
     public Transform[] bulletSpawns;
     public Transform[] pecas;
+    private Quaternion[] initialRotations;
 
     static public int currentBullet = 0;
     static public int currentBullet2 = 0;
@@ -36,9 +37,16 @@ public class PowerBox : MonoBehaviour
     public float disableTime = 3f;
 
     public ParticleSystem bomba;
-
+    public RotateOnAxis[] rotationOnAxis;
+    
     void Start()
     {
+
+        initialRotations = new Quaternion[pecas.Length];
+        for (int i = 0; i < pecas.Length; i++)
+        {
+            initialRotations[i] = pecas[i].localRotation;
+        }
         GameObject parentObject = GameObject.Find("ArcadeEngineAudio");
 
         if (parentObject != null)
@@ -49,7 +57,7 @@ public class PowerBox : MonoBehaviour
         {
             Debug.LogError("Não foi possível encontrar o objeto pai com o nome especificado.");
         }
-
+        
         fenoScript = GetComponent<Feno>();
         scriptCarro = GetComponent<ArcadeKart>();
         KeyboardInput input = GetComponent<KeyboardInput>();
@@ -89,7 +97,7 @@ public class PowerBox : MonoBehaviour
                 pwpOleo();
                 RodaCarro();
                 isOleoActive = true;
-                Invoke("ResetPwP", 6f);
+                Invoke("ResetPwP", 3f);
                 Destroy(other.gameObject, pwpLife);
             }
         }
@@ -101,7 +109,7 @@ public class PowerBox : MonoBehaviour
                 pwpBall();
                 RodaCarro();
                 isBallActive = true;
-                Invoke("ResetPwP", 3f);
+                Invoke("ResetPwP", 2f);
                 Destroy(other.gameObject, 3f);
                 bomba.Play();
             }
@@ -151,7 +159,7 @@ public class PowerBox : MonoBehaviour
 
     public void pwpOleo()
     {
-        scriptCarro.baseStats.TopSpeed = 7f;
+        scriptCarro.baseStats.TopSpeed = 2f;
 
     }
 
@@ -204,7 +212,7 @@ public class PowerBox : MonoBehaviour
 
         float elapsedTime = 0f;
 
-        while (elapsedTime < 5f)
+        while (elapsedTime < 3f)
         {
             foreach (Transform peca in pecas)
             {
@@ -214,7 +222,10 @@ public class PowerBox : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        for (int i = 0; i < pecas.Length; i++)
+        {
+            pecas[i].localRotation = initialRotations[i];
+        }
         isRotating = false;
     }
 
@@ -310,6 +321,21 @@ public class PowerBox : MonoBehaviour
             }
         }
 
+        if (scriptCarro.baseStats.TopSpeed > 0)
+        {
+            rotationOnAxis[0].rotationSpeed.z = 7f;
+            rotationOnAxis[1].rotationSpeed.z = 7f;
+            rotationOnAxis[2].rotationSpeed.z = 7f;
+            rotationOnAxis[3].rotationSpeed.z = 7f;
+        }
+        else
+        {
+            rotationOnAxis[0].rotationSpeed.z = 0f;
+            rotationOnAxis[1].rotationSpeed.z = 0f;
+            rotationOnAxis[2].rotationSpeed.z = 0f;
+            rotationOnAxis[3].rotationSpeed.z = 0f;
+        }
     }
+    
 
 }
